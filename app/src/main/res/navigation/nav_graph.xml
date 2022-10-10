@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/tasksFragment"
-        android:name="com.abanoub.samir.keep.ui.tasks.TasksFragment"
+        android:name="com.abanoub.samir.keep.ui.view.tasks.TasksFragment"
         android:label="fragment_tasks"
         tools:layout="@layout/fragment_tasks" />
 </navigation>
