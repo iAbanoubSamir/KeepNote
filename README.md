@@ -4,13 +4,15 @@ MVVM To-Do List App with Flow and Architecture Components
 ## Description
 Android To-Do List app, created using Android Studio and Kotlin, and here is the main features:
 - Add new tasks.
+- Edit existing tasks.
 - Delete existing tasks.
-- Mark tasks as important.
-- Sort tasks with important first.
-- Sort tasks with done tasks first.
-- Mark tasks as Done.
-- Delete all done tasks.
 - Search for tasks.
+- Mark tasks as important.
+- Sort tasks by name.
+- Sort tasks by date created.
+- Mark tasks as completed.
+- Hide/Show completed tasks.
+- Delete all completed tasks.
 <br>
 
 ## Built with:
