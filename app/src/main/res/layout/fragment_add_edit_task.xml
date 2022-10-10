@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <EditText
+            android:id="@+id/edit_text_task_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Task Title"
+            android:inputType="text"
+            android:textColor="#590808"
+            android:textSize="16sp" />
+
+        <CheckBox
+            android:id="@+id/check_box_important"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Important Task" />
+
+        <TextView
+            android:id="@+id/text_view_date_created"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#301D1D"
+            android:textSize="14sp"
+            tools:text="Date Created: " />
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_save_task"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_done" />
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
