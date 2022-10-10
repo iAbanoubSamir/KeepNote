@@ -1,7 +1,8 @@
-package com.abanoub.samir.keep
+package com.abanoub.samir.keep.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.abanoub.samir.keep.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
