@@ -1,7 +1,7 @@
-package com.abanoub.samir.keep.data
+package com.abanoub.samir.keep.data.local.tasks
 
 import androidx.room.*
-import com.abanoub.samir.keep.ui.view.tasks.SortOrder
+import com.abanoub.samir.keep.data.local.prefs.SortOrder
 import kotlinx.coroutines.flow.Flow
 
 @Dao

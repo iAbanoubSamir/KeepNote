@@ -1,4 +1,4 @@
-package com.abanoub.samir.keep.data
+package com.abanoub.samir.keep.data.local.tasks
 
 import android.os.Parcelable
 import androidx.room.Entity

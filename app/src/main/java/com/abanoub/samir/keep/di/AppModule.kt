@@ -2,7 +2,7 @@ package com.abanoub.samir.keep.di
 
 import android.app.Application
 import androidx.room.Room
-import com.abanoub.samir.keep.data.TaskDatabase
+import com.abanoub.samir.keep.data.local.tasks.TaskDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
