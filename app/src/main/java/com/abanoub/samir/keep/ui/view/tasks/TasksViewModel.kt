@@ -6,6 +6,7 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.abanoub.samir.keep.data.local.prefs.PreferencesRepository
 import com.abanoub.samir.keep.data.local.prefs.SortOrder
+import com.abanoub.samir.keep.data.local.tasks.Task
 import com.abanoub.samir.keep.data.local.tasks.TaskDao
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
@@ -28,6 +29,7 @@ class TasksViewModel @ViewModelInject constructor(
     }.flatMapLatest { (query, filterPreferences) ->
         taskDao.getTasks(query, filterPreferences.sortOrder, filterPreferences.hideCompleted)
     }
+    val tasks = tasksFlow.asLiveData()
 
     fun onSortOrderSelected(sortOrder: SortOrder) = viewModelScope.launch {
         preferencesRepository.updateSortOrder(sortOrder)
@@ -37,5 +39,12 @@ class TasksViewModel @ViewModelInject constructor(
         preferencesRepository.updateHideCompleted(hideCompleted)
     }
 
-    val tasks = tasksFlow.asLiveData()
+    fun onTaskClicked(task: Task) {
+
+    }
+
+    fun onTaskCheckedChanged(task: Task, isChecked: Boolean) = viewModelScope.launch {
+        taskDao.update(task.copy(completed = isChecked))
+    }
+
 }
