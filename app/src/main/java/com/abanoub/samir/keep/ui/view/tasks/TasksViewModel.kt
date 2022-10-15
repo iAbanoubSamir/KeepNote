@@ -7,6 +7,8 @@ import com.abanoub.samir.keep.data.local.prefs.PreferencesRepository
 import com.abanoub.samir.keep.data.local.prefs.SortOrder
 import com.abanoub.samir.keep.data.local.tasks.Task
 import com.abanoub.samir.keep.data.local.tasks.TaskDao
+import com.abanoub.samir.keep.ui.view.addedit.ADD_TASK_RESULT_OK
+import com.abanoub.samir.keep.ui.view.addedit.EDIT_TASK_RESULT_OK
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
@@ -64,10 +66,27 @@ class TasksViewModel @ViewModelInject constructor(
         tasksEventChannel.send(TasksEvent.NavigateToAddTaskScreen)
     }
 
+    fun onAddEditResult(result: Int) {
+        when (result) {
+            ADD_TASK_RESULT_OK -> showTaskSavedConfirmationMessage("Task Added")
+            EDIT_TASK_RESULT_OK -> showTaskUpdatedConfirmationMessage("Task Updated")
+        }
+    }
+
+    private fun showTaskSavedConfirmationMessage(msg: String) = viewModelScope.launch {
+        tasksEventChannel.send(TasksEvent.ShowTaskSavedConfirmationMessage(msg))
+    }
+
+    private fun showTaskUpdatedConfirmationMessage(msg: String) = viewModelScope.launch {
+        tasksEventChannel.send(TasksEvent.ShowTaskUpdatedConfirmationMessage(msg))
+    }
+
     sealed class TasksEvent {
         object NavigateToAddTaskScreen : TasksEvent()
         data class NavigateToEditTaskScreen(val task: Task) : TasksEvent()
         data class ShowUndoDeleteTaskMessage(val task: Task) : TasksEvent()
+        data class ShowTaskSavedConfirmationMessage(val msg: String) : TasksEvent()
+        data class ShowTaskUpdatedConfirmationMessage(val msg: String) : TasksEvent()
     }
 
 }
